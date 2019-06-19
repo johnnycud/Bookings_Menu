@@ -20,20 +20,23 @@ import java.io.*;
 public class BookingList {
 		
 	private static BookingList b1 = new BookingList();
-		
+	private static String surName = Booking.getSurname();
+	private static String tableNo = Booking.getTableNo();
+	private static String sittingTime = Booking.getSittingTime();
+	private static String partyOf = Booking.getPartyOf();
 		
 	// to save a booking
-	public void saveData() throws FileNotFoundException {	
+	public static void saveData() throws FileNotFoundException {	
 			
 	Scanner  inputStream = new Scanner(new File("bookings.dat"));
 		try {
 			
-			String surName = inputStream.nextLine();
-			String tableNo = inputStream.nextLine();
-			String sittingTime = inputStream.nextLine();
-			String partyOf = inputStream.nextLine();
+			BookingList.surName = inputStream.nextLine();
+			BookingList.tableNo = inputStream.nextLine();
+			BookingList.sittingTime = inputStream.nextLine();
+			BookingList.partyOf = inputStream.nextLine();
 				
-			Booking<?> bookingData = new Booking<Object>( surName,sittingTime,tableNo,partyOf);
+			Booking<?> bookingData = new Booking<Object>(null, surName, tableNo, sittingTime, partyOf);
 			b1.insert(bookingData);
 				
 		}finally {
@@ -55,10 +58,10 @@ public class BookingList {
 		return length() == 0;
 	}
 	//insert data in general
-	public void insert(Booking<?> data) {
+	public void insert(Booking<?> booking) {
 			
-		BookingNode node = new BookingNode(data);
-		node.setData(data);
+		BookingNode node = new BookingNode(booking);
+		node.setData(booking);
 		node.next = null;
 			
 		if(head == null) {
@@ -167,8 +170,8 @@ public class BookingList {
 		BookingNode next;
 		private static Booking<?> data;
 
-		public BookingNode(Booking<?> bookingData) {
-			this.setData(bookingData);
+		public BookingNode(Booking<?> booking) {
+			this.setData(booking);
 		}
 
 		public void show() {

@@ -5,6 +5,8 @@ package restaurant;
 
 import java.time.LocalDate;
 
+import javax.swing.JLabel;
+
 /**
  * Author jCudd
  * Date 19/06/2019
@@ -43,7 +45,11 @@ public class Booking<LoacalDate> {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getSurname() {
+	public Booking(JLabel surNameLabel, JLabel tableNoLabel, JLabel sittingTimeLabel, JLabel partyOfLabel) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public static String getSurname() {
 		return surname;
 	}
 
@@ -51,7 +57,7 @@ public class Booking<LoacalDate> {
 		Booking.surname = surname;
 	}
 
-	public String getPartyOf() {
+	public static String getPartyOf() {
 		return partyOf;
 	}
 
@@ -90,8 +96,8 @@ public class Booking<LoacalDate> {
 	
 	@Override
 	public  String toString() {
-		return "Booking [Date = " + Booking.getDate() +"/t" + " Surname = " + this.getSurname()  +"/t" + " Sitting Time = " + Booking.getSittingTime() +"/t" + "Table Number= " + Booking.getTableNo()  +"/t" +
-				" Number In Party = " + this.getPartyOf() +  "]";
+		return "Booking [Date = " + Booking.getDate() +"/t" + " Surname = " + Booking.getSurname()  +"/t" + " Sitting Time = " + Booking.getSittingTime() +"/t" + "Table Number= " + Booking.getTableNo()  +"/t" +
+				" Number In Party = " + Booking.getPartyOf() +  "]";
 	}
 	/**
 	 * @return the available

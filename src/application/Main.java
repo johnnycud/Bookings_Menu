@@ -1,13 +1,16 @@
 package application;
 	
+import javax.swing.JFrame;
+import java.awt.*;
+import gui.BookingGUI;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
 
-public class Main extends Application {
-	@Override
+public class Main  {
+	/*@Override
 	public void start(Stage primaryStage) {
 		try {
 			BorderPane root = new BorderPane();
@@ -18,9 +21,13 @@ public class Main extends Application {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 	
 	public static void main(String[] args) {
-		launch(args);
+		BookingGUI app = new BookingGUI();
+		app.setVisible (true);
+		app.setSize (500,500);
+		app.setLocation (200,100);
+		app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
